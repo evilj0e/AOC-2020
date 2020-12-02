@@ -1,4 +1,4 @@
-export const input = [
+const input = [
     1227,
     1065,
     329,
@@ -200,3 +200,5 @@ export const input = [
     1116,
     1090,
 ];
+
+module.exports = input;

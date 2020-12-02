@@ -22,11 +22,11 @@ sum to 2020; what do you get if you multiply them together?
 https://adventofcode.com/2020/day/1
 */
 
-import { input } from './input';
+const input = require('./input');
 
 const target = 2020;
 
-export const lookup = (arr) => {
+const lookup = (arr) => {
     const map = {};
 
     for (let item of arr) {

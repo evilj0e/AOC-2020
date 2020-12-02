@@ -14,11 +14,11 @@ that sum to 2020?
 https://adventofcode.com/2020/day/1#part2
 */
 
-import { input } from './input';
+const input = require('./input');
 
 const target = 2020;
 
-export const lookup = (arr) => {
+const lookup = (arr) => {
     for (let i = 0; i < arr.length - 1; i++) {
         for (let j = 1; j < arr.length; j++) {
             const a = arr[i];
