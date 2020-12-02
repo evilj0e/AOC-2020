@@ -19,20 +19,16 @@ import { input } from './input';
 const target = 2020;
 
 export const lookup = (arr) => {
-    const filteredArr = arr.filter(item => item < 2020);
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 1; j < arr.length; j++) {
+            const a = arr[i];
+            const b = arr[j];
+            const c = target - a - b;
 
-    console.log(filteredArr);
-
-    const map = {};
-
-    for (let item of arr) {
-        const difference = target - item;
-
-        if (map[item]) {
-            return item * difference;
+            if (arr.includes(c)) {
+                return a * b * c;
+            }
         }
-
-        map[difference] = true;
     }
 }
 
