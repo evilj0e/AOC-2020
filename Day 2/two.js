@@ -20,29 +20,23 @@ https://adventofcode.com/2020/day/2#part2
 
 const lines = require('./index');
 
-const getPartsLine = line => {
-    const [, min, max, letter, password] = line.match(/(\d+)-(\d+) (\S): (\S+)/);
+const parseLine = (line) => {
+    const [, i, j, letter, password] = line.match(/(\d+)-(\d+) (\S): (\S+)/);
 
-    return {
-        min, max, letter, password
-    }
-}
-
-const isPasswordValid = ({ min, max, letter, password }) => {
-    if (
-        (password[min - 1] === letter && password[max - 1] !== letter) ||
-        (password[min - 1] !== letter && password[max - 1] === letter)
-    ) {
-        return true;
-    }
-
-    return false
+    return { i, j, letter, password };
 };
 
-const findMatches = lines =>
+const isPasswordValid = ({ i, j, letter, password }) => {
+    const isAEquals = password[i] === letter;
+    const isBEquals = password[j] === letter;
+
+    return (isAEquals && !isBEquals) || (!isAEquals && isBEquals);
+};
+
+const computeCountValidPasswords = (lines) =>
     lines.reduce(
-        (count, line) => count + isPasswordValid(getPartsLine(line)),
+        (count, line) => count + isPasswordValid(parseLine(line)),
         0
     );
 
-console.log(findMatches(lines));
+console.log(computeCountValidPasswords(lines));
