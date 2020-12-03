@@ -19,14 +19,16 @@ const input = require('./input');
 const target = 2020;
 
 const lookup = (arr) => {
+    const set = new Set(arr);
+
     for (let i = 0; i < arr.length - 1; i++) {
         for (let j = 1; j < arr.length; j++) {
             const a = arr[i];
             const b = arr[j];
-            const c = target - a - b;
+            const x = target - a - b;
 
-            if (arr.includes(c)) {
-                return a * b * c;
+            if (set.has(x)) {
+                return a * b * x;
             }
         }
     }

@@ -27,16 +27,16 @@ const input = require('./input');
 const target = 2020;
 
 const lookup = (arr) => {
-    const map = {};
+    const diff = {};
 
     for (let item of arr) {
-        const difference = target - item;
+        const x = target - item;
 
-        if (map[item]) {
-            return item * difference;
+        if (diff[item]) {
+            return item * x;
         }
 
-        map[difference] = true;
+        diff[x] = true;
     }
 }
 
